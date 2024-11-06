@@ -8,18 +8,22 @@ Vagrant.configure("2") do |config|
   apt-get install -y bind9 bind9-dnsutils
 SHELL
 
-  config.vm.define "DNSA" do |DNSA|
-    tierra.vm.network "private_network", ip: "192.168.57.103"
-    tierra.vm.provision "shell", name: "master-dns", inline: <<-SHELL
+  config.vm.define "dnsa" do |dnsa|
+    dnsa.vm.network "private_network", ip: "192.168.57.103"
+    dnsa.vm.provision "shell", name: "master-dns", inline: <<-SHELL
+
+      cp /vagrant/named /etc/default/named
  
     SHELL
 
   end
    
 
-  config.vm.define "DNSB" do |DNSB|
-    venus.vm.network "private_network", ip: "192.168.57.102"
-    venus.vm.provision "shell", name: "slave-dns", inline: <<-SHELL
+  config.vm.define "dnsb" do |dnsb|
+    dnsb.vm.network "private_network", ip: "192.168.57.102"
+    dnsb.vm.provision "shell", name: "slave-dns", inline: <<-SHELL
+
+      cp /vagrant/named /etc/default/named
 
     SHELL
   end
