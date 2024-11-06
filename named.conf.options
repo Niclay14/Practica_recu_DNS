@@ -1,0 +1,40 @@
+acl "confiables" {
+		192.168.57.0/24;
+};
+
+
+options {
+	directory "/var/cache/bind";
+
+
+
+	// forwarders {
+	// 	0.0.0.0;
+	// };
+	
+	allow-transfer { none; };
+
+
+ listen-on port 53 { 
+		192.168.57.103;   //Master - dnsa
+		192.168.57.102;	  //Slave  - dnsb
+ 
+ };
+
+	recursion yes;
+
+	allow-recursion { confiables; };
+
+	//========================================================================
+	// If BIND logs error messages about the root key being expired,
+	// you will need to update your keys.  See https://www.isc.org/bind-keys
+	//========================================================================
+	
+	forwarders {
+		208.67.222.222; 
+	};
+	
+	dnssec-validation yes;
+
+	// listen-on-v6 { any; };
+};

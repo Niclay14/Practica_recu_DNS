@@ -13,6 +13,7 @@ SHELL
     dnsa.vm.provision "shell", name: "master-dns", inline: <<-SHELL
 
       cp /vagrant/named /etc/default/named
+      cp /vagrant/named.conf.options /etc/bind/named.conf.options
  
     SHELL
 
@@ -24,6 +25,8 @@ SHELL
     dnsb.vm.provision "shell", name: "slave-dns", inline: <<-SHELL
 
       cp /vagrant/named /etc/default/named
+      cp /vagrant/named.conf.options /etc/bind/named.conf.options
+ 
 
     SHELL
   end
