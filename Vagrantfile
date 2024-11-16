@@ -14,6 +14,8 @@ SHELL
 
       cp /vagrant/named /etc/default/named
       cp /vagrant/named.conf.options /etc/bind/named.conf.options
+      cp /vagrant/dnsa/named.conf.local /etc/bind/named.conf.local
+      cp /vagrant/dnsa/ies.test /var/lib/bind/ies.test
  
     SHELL
 
@@ -26,6 +28,7 @@ SHELL
 
       cp /vagrant/named /etc/default/named
       cp /vagrant/named.conf.options /etc/bind/named.conf.options
+      cp /vagrant/dnsb/named.conf.local /etc/bind/named.conf.local
  
 
     SHELL

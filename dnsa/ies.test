@@ -1,0 +1,43 @@
+;
+; Zone configuration for ies.test
+;
+
+$TTL	86400
+$ORIGIN ies.test.
+
+@	IN	SOA	server01.ies.test. root.ies.test. (
+            2024101901	; Serial
+            604800		; Refresh
+            86400		; Retry
+            2419200		; Expire
+            7200        ; Negative Cache TTL
+)
+
+; Name servers
+@               IN      NS      server01
+@               IN      NS      server02
+
+; A records (IP addresses)
+server01        IN      A       192.168.57.10
+pcprofesor      IN      A       192.168.57.20
+pc01            IN      A       192.168.57.21
+pc02            IN      A       192.168.57.22
+pc03            IN      A       192.168.57.23
+server02        IN      A       192.168.57.100
+pc04            IN      A       192.168.57.101
+pc05            IN      A       192.168.57.102
+pc06            IN      A       192.168.57.103
+pc07            IN      A       192.168.57.104
+matematicas     IN      A       192.168.57.150
+ingles01        IN      A       192.168.57.151
+ingles02        IN      A       192.168.57.152
+lengua          IN      A       192.168.57.153
+tic             IN      A       192.168.57.154
+
+; CNAME records (aliases)
+ns1             IN      CNAME   server01
+ns2             IN      CNAME   server02
+mail            IN      CNAME   pc07
+
+; MX record (mail exchange)
+@               IN      MX      10 pc07

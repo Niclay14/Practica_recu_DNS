@@ -23,22 +23,10 @@ zone "informatica.ies.test" {
     allow-transfer { 192.168.57.102; };
 };
 
-zone "57.168.192.in-addr.arpa" {
-    type master;
-    file "/var/lib/bind/informatica.ies.test.rev";  // Archivo de zona inversa
-    allow-transfer { 192.168.57.102; };
-};
-
 // Subdominio aulas
 zone "aulas.ies.test" {
     type master;
     file "/var/lib/bind/aulas.ies.test.dns";  // Archivo de zona directa
-    allow-transfer { 192.168.57.102; };
-};
-
-zone "57.168.192.in-addr.arpa" {
-    type master;
-    file "/var/lib/bind/aulas.ies.test.rev";  // Archivo de zona inversa
     allow-transfer { 192.168.57.102; };
 };
 
@@ -49,8 +37,4 @@ zone "departamentos.ies.test" {
     allow-transfer { 192.168.57.102; };
 };
 
-zone "57.168.192.in-addr.arpa" {
-    type master;
-    file "/var/lib/bind/departamentos.ies.test.rev";  // Archivo de zona inversa
-    allow-transfer { 192.168.57.102; };
-};
+
