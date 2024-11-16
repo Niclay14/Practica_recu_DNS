@@ -2,13 +2,55 @@
 // Do any local configuration here
 //
 
-// Consider adding the 1918 zones here, if they are not used in your
-// organization
-//include "/etc/bind/zones.rfc1918";
-
+// Dominio principal ies.test
 zone "ies.test" {
-        type master;
-        file "/var/lib/bind/db.ies.test"
-}
+    type master;
+    file "/var/lib/bind/ies.test.dns";  // Archivo de zona directa
+    allow-transfer { 192.168.57.102; }; // Servidor esclavo
+};
 
-zone "
+// Zona inversa para la red 192.168.57.0/24
+zone "57.168.192.in-addr.arpa" {
+    type master;
+    file "/var/lib/bind/ies.test.rev";  // Archivo de zona inversa
+    allow-transfer { 192.168.57.102; };
+};
+
+// Subdominio informatica
+zone "informatica.ies.test" {
+    type master;
+    file "/var/lib/bind/informatica.ies.test.dns";  // Archivo de zona directa
+    allow-transfer { 192.168.57.102; };
+};
+
+zone "57.168.192.in-addr.arpa" {
+    type master;
+    file "/var/lib/bind/informatica.ies.test.rev";  // Archivo de zona inversa
+    allow-transfer { 192.168.57.102; };
+};
+
+// Subdominio aulas
+zone "aulas.ies.test" {
+    type master;
+    file "/var/lib/bind/aulas.ies.test.dns";  // Archivo de zona directa
+    allow-transfer { 192.168.57.102; };
+};
+
+zone "57.168.192.in-addr.arpa" {
+    type master;
+    file "/var/lib/bind/aulas.ies.test.rev";  // Archivo de zona inversa
+    allow-transfer { 192.168.57.102; };
+};
+
+// Subdominio departamentos
+zone "departamentos.ies.test" {
+    type master;
+    file "/var/lib/bind/departamentos.ies.test.dns";  // Archivo de zona directa
+    allow-transfer { 192.168.57.102; };
+};
+
+zone "57.168.192.in-addr.arpa" {
+    type master;
+    file "/var/lib/bind/departamentos.ies.test.rev";  // Archivo de zona inversa
+    allow-transfer { 192.168.57.102; };
+};
