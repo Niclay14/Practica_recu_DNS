@@ -16,6 +16,7 @@ SHELL
       cp /vagrant/named.conf.options /etc/bind/named.conf.options
       cp /vagrant/dnsa/named.conf.local /etc/bind/named.conf.local
       cp /vagrant/dnsa/ies.test /var/lib/bind/ies.test
+      cp /vagrant/dnsa/57.168.192.rev /var/lib/bind/57.168.192.rev
  
     SHELL
 
