@@ -21,6 +21,7 @@ zone "informatica.ies.test" {
     type master;
     file "/var/lib/bind/informatica.ies.test.dns";  // Archivo de zona directa
     allow-transfer { 192.168.57.102; };
+    notify yes;
 };
 
 // Subdominio aulas
@@ -28,6 +29,7 @@ zone "aulas.ies.test" {
     type master;
     file "/var/lib/bind/aulas.ies.test.dns";  // Archivo de zona directa
     allow-transfer { 192.168.57.102; };
+    notify yes;
 };
 
 // Subdominio departamentos
