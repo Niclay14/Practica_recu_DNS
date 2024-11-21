@@ -6,3 +6,20 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
+zone "informatica.ies.test" {
+    type slave;
+    masters { 192.168.57.103; }; 
+    file "/var/cache/bind/informatica.ies.test"; 
+};
+
+zone "aulas.ies.test" {
+    type slave;
+    masters { 192.168.57.103; };
+    file "/var/cache/bind/aulas.ies.test"; 
+};
+
+zone "57.168.192.in-addr.arpa" {
+    type slave;
+    masters { 192.168.57.103; }; 
+    file "/var/cache/bind/57.168.192.rev";
+};
